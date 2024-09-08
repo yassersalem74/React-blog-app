@@ -1,3 +1,4 @@
+// src/components/Login.jsx
 import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
@@ -40,7 +41,7 @@ export default function Login() {
             if (user.password === formData.password) {
               login();
               alert("Login Successful");
-              navigate('/');
+              navigate('/home'); // Redirect to home page after successful login
             } else {
               validationErrors.password = "Wrong Email or Password";
               validationErrors.email = "Wrong Email or Password";

@@ -13,8 +13,7 @@ export default function Registration() {
   });
 
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,17 +45,28 @@ export default function Registration() {
 
     setErrors(validationErrors);
 
+    // check if email already exist
     if (Object.keys(validationErrors).length === 0) {
-      axios.post("http://localhost:3000/users" , formData).
-      then(res =>{
-        console.log(res);
-        alert("Registration Successfully");
-        navigate('/login');
-      })
-      .then(err => console.log(err));
+      axios.get("http://localhost:3000/users")
+        .then(res => {
+          const userExists = res.data.some(user => user.email === formData.email);
+          if (userExists) {
+            validationErrors.email = "Email already exists";
+            setErrors(validationErrors);
+          } else {
+            axios.post("http://localhost:3000/users", formData)
+              .then(res => {
+                console.log(res);
+                alert("Registration Successful");
+                navigate('/login');
+              })
+              .catch(err => console.log(err));
+          }
+        })
+        .catch(err => console.log(err));
     }
 
-    console.log(formData)
+    console.log(formData);
   };
 
   return (
