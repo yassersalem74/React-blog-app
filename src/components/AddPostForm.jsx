@@ -9,9 +9,7 @@ export default function AddPostForm() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    title: '',
     description: '',
-    image: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -20,10 +18,6 @@ export default function AddPostForm() {
     e.preventDefault();
     let validationErrors = {};
 
-    if (!formData.title) {
-      validationErrors.title = "Title is required";
-    }
-
     if (!formData.description) {
       validationErrors.description = "Description is required";
     }
@@ -31,7 +25,7 @@ export default function AddPostForm() {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      axios.post("http://localhost:3000/posts", {
+      axios.post("https://spot-future-player.glitch.me/posts", {
         ...formData, // Spread the formData object directly
         userId: currentUserId ? currentUserId : null, // Use the actual user ID
         userName: currentUser ? currentUser.firstName : null // Use the actual user's first name
@@ -75,41 +69,16 @@ export default function AddPostForm() {
         </div>
 
         <div className="flex flex-col gap-3">
-          {/* Title */}
-          <div className="mb-4 w-full">
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700">Title</label>
-            <input
-              onChange={(event) => setFormData({ ...formData, title: event.target.value })}
-              type="text"
-              id="title"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Enter Post Title"
-            />
-            {errors.title && <span className="text-red-500">{errors.title}</span>}
-          </div>
-
           {/* Description */}
           <div className="mb-4 w-full">
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700">What's happening ?</label>
             <textarea
               onChange={(event) => setFormData({ ...formData, description: event.target.value })}
               id="description"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Enter description"
+              className="mt-1 block w-full  h-64 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              placeholder="What's happening ?"
             />
             {errors.description && <span className="text-red-500">{errors.description}</span>}
-          </div>
-
-          {/* Image */}
-          <div className="mb-4 w-full">
-            <label htmlFor="image" className="block text-sm font-medium text-gray-700">Image Url</label>
-            <input
-              onChange={(event) => setFormData({ ...formData, image: event.target.value })}
-              type="text"
-              id="image"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Enter Image Url"
-            />
           </div>
         </div>
 

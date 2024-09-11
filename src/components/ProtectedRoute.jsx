@@ -13,8 +13,7 @@ export default function ProtectedRoute({ children }) {
   return children;
 }
 
-
-//Fix => 'children' is missing in props validation
+// Fix => 'children' is missing in props validation
 ProtectedRoute.propTypes = {
   children: PropTypes.node.isRequired,
-};
+}

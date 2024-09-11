@@ -45,16 +45,16 @@ export default function Registration() {
 
     setErrors(validationErrors);
 
-    // check if email already exist
+    // check if email already exists
     if (Object.keys(validationErrors).length === 0) {
-      axios.get("http://localhost:3000/users")
+      axios.get("https://spot-future-player.glitch.me/users")
         .then(res => {
           const userExists = res.data.some(user => user.email === formData.email);
           if (userExists) {
             validationErrors.email = "Email already exists";
             setErrors(validationErrors);
           } else {
-            axios.post("http://localhost:3000/users", formData)
+            axios.post("https://spot-future-player.glitch.me/users", formData)
               .then(res => {
                 console.log(res);
                 alert("Registration Successful");
@@ -65,7 +65,6 @@ export default function Registration() {
         })
         .catch(err => console.log(err));
     }
-
   };
 
   return (
