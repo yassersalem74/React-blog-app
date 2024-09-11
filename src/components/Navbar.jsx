@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="navbar bg-base-100 border-b-2">
         <div className="flex-1">
           <Link to="/" className=''>
-            <img src="/public/logo4.jpg" width={100} alt="logo" />
+            <img src="/logo4.jpg" width={100} alt="logo" />
           </Link>
         </div>
         <div className="flex-none">
