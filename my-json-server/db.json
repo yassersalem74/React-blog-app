@@ -1,0 +1,54 @@
+{
+    "users": [
+      {
+        "id": "5d3f",
+        "firstName": "yasser ahmed",
+        "lastName": "salem",
+        "email": "yassersalem9099@gmail.com",
+        "password": "123456",
+        "confirmPassword": "123456"
+      },
+      {
+        "id": "5095",
+        "firstName": "mohamed",
+        "lastName": "salem",
+        "email": "mohamed@gmail.com",
+        "password": "121212",
+        "confirmPassword": "121212"
+      },
+      {
+        "id": "935f",
+        "firstName": "hamada",
+        "lastName": "hamada",
+        "email": "hamada@gmail.com",
+        "password": "121212",
+        "confirmPassword": "121212"
+      },
+      {
+        "id": "65ca",
+        "firstName": "hamadaaaa",
+        "lastName": "hamody",
+        "email": "hamada1@gmail.com",
+        "password": "111111",
+        "confirmPassword": "111111"
+      },
+      {
+        "id": "138a",
+        "firstName": "zahra",
+        "lastName": "aleem",
+        "email": "zahra@gmail.com",
+        "password": "123456789",
+        "confirmPassword": "123456789"
+      }
+    ],
+    "posts": [
+      {
+        "id": "331a",
+        "title": "CR7",
+        "description": "Cristiano Ronaldo",
+        "image": "https://c4.wallpaperflare.com/wallpaper/139/444/1000/cristiano-ronaldo-wallpaper-preview.jpg",
+        "userId": "5d3f",
+        "userName": "yasser ahmed"
+      }
+    ]
+  }

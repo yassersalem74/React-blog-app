@@ -23,6 +23,32 @@
       "email": "hamada@gmail.com",
       "password": "121212",
       "confirmPassword": "121212"
+    },
+    {
+      "id": "65ca",
+      "firstName": "hamadaaaa",
+      "lastName": "hamody",
+      "email": "hamada1@gmail.com",
+      "password": "111111",
+      "confirmPassword": "111111"
+    },
+    {
+      "id": "138a",
+      "firstName": "zahra",
+      "lastName": "aleem",
+      "email": "zahra@gmail.com",
+      "password": "123456789",
+      "confirmPassword": "123456789"
+    }
+  ],
+  "posts": [
+    {
+      "id": "331a",
+      "title": "CR7",
+      "description": "Cristiano Ronaldo",
+      "image": "https://c4.wallpaperflare.com/wallpaper/139/444/1000/cristiano-ronaldo-wallpaper-preview.jpg",
+      "userId": "5d3f",
+      "userName": "yasser ahmed"
     }
   ]
 }

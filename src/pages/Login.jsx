@@ -1,9 +1,8 @@
-// src/components/Login.jsx
-import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { AuthContext } from '../context/AuthContext';
+import axios from 'axios';
 
 export default function Login() {
   const { login } = useContext(AuthContext);
@@ -36,35 +35,37 @@ export default function Login() {
     if (Object.keys(validationErrors).length === 0) {
       axios.get("http://localhost:3000/users")
         .then(res => {
-          const user = res.data.find(user => user.email === formData.email);
+          const user = res.data.find(user => user.email === formData.email && user.password === formData.password);
           if (user) {
-            if (user.password === formData.password) {
-              login();
-              alert("Login Successful");
-              navigate('/home'); // Redirect to home page after successful login
-            } else {
-              validationErrors.password = "Wrong Email or Password";
-              validationErrors.email = "Wrong Email or Password";
-            }
+            login(user);
+            navigate('/');
           } else {
-            validationErrors.email = "Wrong Email or Password";
+            alert("Invalid email or password");
           }
-          setErrors(validationErrors);
         })
         .catch(err => console.log(err));
     }
-
-    console.log(formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto border p-5 m-9 rounded-lg">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto border p-5 m-24 rounded-lg">
+    {/* Image Section */}
+    <div className="md:order-1">
+      <img
+        src="../../public/blog3.jpg"
+        alt="Login"
+        className="w-full h-full object-cover rounded-lg"
+      />
+    </div>
+
+    {/* Form Section */}
+    <form onSubmit={handleSubmit} className="md:order-2">
       <div>
-        <h1 className="text-center text-3xl pb-6 text-sky-700 font-bold">Log In</h1>
+        <h1 className="text-center text-3xl pb-6 text-sky-500 font-bold">Log In</h1>
       </div>
 
-      <div className="flex gap-3">
-        {/* email */}
+      <div className="flex flex-col gap-3">
+        {/* Email */}
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email address</label>
           <input
@@ -77,7 +78,7 @@ export default function Login() {
           {errors.email && <span className="text-red-500">{errors.email}</span>}
         </div>
 
-        {/* password */}
+        {/* Password */}
         <div className="mb-4">
           <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
           <input
@@ -93,11 +94,13 @@ export default function Login() {
 
       <button
         type="submit"
-        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white  bg-sky-500 hover:bg-sky-400 hover:transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         Login
       </button>
-      <p className="">Already have account? <Link to="/sign-up" className="text-red-600">Register Now</Link></p>
+      <p className="text-center">Already have account? <Link to="/sign-up" className="font-bold text-sky-500">Register Now</Link></p>
     </form>
+  </div>
+
   );
 }
