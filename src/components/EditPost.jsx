@@ -40,13 +40,13 @@ export default function EditPostForm() {
       {/* Go Home */}
       <div className="w-1/6 absolute top-1 left-1">
         <Link to="/">
-          <img src="../../public/back.png" alt="go-back" className="w-2/3 sm:w-1/3" />
+          <img src="/back.png" alt="go-back" className="w-2/3 sm:w-1/3" />
         </Link>
       </div>
       {/* Image Section */}
       <div className="md:order-1">
         <img
-          src="../../public/add4.jpg"
+          src="/add4.jpg"
           alt="Edit Post"
           className="w-full h-full object-cover rounded-lg"
         />

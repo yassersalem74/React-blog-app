@@ -72,7 +72,7 @@ export default function Registration() {
       {/* Image Section */}
       <div className="md:order-1">
         <img
-          src="../../public/register2.jpg"
+          src="/register2.jpg"
           alt="Sign Up"
           className="w-full h-full object-contain rounded-lg"
         />

@@ -4,7 +4,7 @@ export default function Error() {
     return (
       <div className='flex justify-center items-start py-12 '>
         <div className="flex flex-col gap-3">
-          <img src="../../public/error4.jpeg" alt="" className='rounded-xl' />
+          <img src="/error4.jpeg" alt="" className='rounded-xl' />
           <Link to="/" className="btn btn-primary">Back Home</Link> 
         </div>
       </div>

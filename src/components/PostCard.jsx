@@ -58,7 +58,7 @@ export default function PostCard() {
 
                             <div className="avatar ">
                                 <div className="w-12 rounded-full p-1   ">
-                                    <img src="../../public/user.png" />
+                                    <img src="/public/user.png" />
                                 </div>
                             </div>
                         </div>

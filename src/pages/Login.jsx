@@ -52,7 +52,7 @@ export default function Login() {
       {/* Image Section */}
       <div className="md:order-1">
         <img
-          src="../../public/blog3.jpg"
+          src="/blog3.jpg"
           alt="Login"
           className="w-full h-full object-cover rounded-lg"
         />
